@@ -1,0 +1,6 @@
+[submodule "api_through"]
+	path = api_through
+	url = git@github.com:smsohan/api_through.git
+[submodule "api_through_ui"]
+	path = api_through_ui
+	url = git@github.com:smsohan/api_through_ui.git

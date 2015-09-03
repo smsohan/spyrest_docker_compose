@@ -5,7 +5,7 @@ web:
   links:
    - mongodb
   env_file:
-    - /env/web.env
+    - ./env/web.env
 
 proxy:
   build: ./api_through
@@ -14,7 +14,7 @@ proxy:
   links:
    - mongodb
   env_file:
-    - /env/web.env
+    - ./env/web.env
 
 mongodb:
   image: mongo
