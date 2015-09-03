@@ -1,0 +1,25 @@
+web:
+  build: ./api_through_ui
+  ports:
+   - "80:80"
+  links:
+   - mongodb
+  env_file:
+    - /env/web.env
+
+proxy:
+  build: ./api_through
+  ports:
+   - "9081:9081"
+  links:
+   - mongodb
+  env_file:
+    - /env/web.env
+
+mongodb:
+  image: mongo
+  volumes:
+   - "/tmp/db:/data/db/"
+  command: mongod --smallfiles
+  ports:
+   - "27017:27017"
