@@ -4,6 +4,7 @@ web:
    - "80:80"
   links:
    - mongodb
+   - proxy
   env_file:
     - ./env/web.env
 
@@ -14,12 +15,12 @@ proxy:
   links:
    - mongodb
   env_file:
-    - ./env/web.env
+    - ./env/proxy.env
 
 mongodb:
   image: mongo
   volumes:
    - "/tmp/db:/data/db/"
   command: mongod --smallfiles
-  ports:
-   - "27017:27017"
+  expose:
+   - "27017"
